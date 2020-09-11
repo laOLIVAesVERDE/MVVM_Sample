@@ -27,7 +27,7 @@ android {
 }
 
 dependencies {
-    // moshi
+    // moshi : JSON形式のデータを読み込んで、Java Objectに変換
     def moshi_version = "1.5.0"
     implementation "com.squareup.moshi:moshi:$moshi_version"
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
