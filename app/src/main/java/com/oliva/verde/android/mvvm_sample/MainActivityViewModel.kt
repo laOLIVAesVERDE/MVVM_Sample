@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 /**
  * ViewModel : View と Model の繋ぎの役割
- * Model（or Repository）のインスタンスを保持します。
+ * Model（or Repository）のインスタンスを保持する。
  */
 // ViewModelクラスを継承する
 class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : ViewModel() {

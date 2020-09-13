@@ -7,7 +7,7 @@ import java.io.IOException
 
 
 /**
- * リポジトリは ViewModel と Model の間に入っており、両者を疎結合にする。
+ * リポジトリはViewModelとModelの間に入っており、両者を疎結合にする。
  * データの取得や保存といったデータにアクセスするためのクラスをここで定義する。
  */
 class ClientApiRepository(val clientApi: ClientApi) {
