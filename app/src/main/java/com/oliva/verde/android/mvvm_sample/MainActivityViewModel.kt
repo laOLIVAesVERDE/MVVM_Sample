@@ -5,14 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
- * ViewModel : View と Model の繋ぎの役割
+ * ViewModel : View と Model（or Repository）の繋ぎの役割
  * Model（or Repository）のインスタンスを保持する。
  */
-// ViewModelクラスを継承する
+// ViewModelクラスを継承し、Repositoryオブジェクトを引数にとる
 class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : ViewModel() {
     /**
      * LiveDataの値を変更することはできないので MutableLiveDataで_userReposを作成し、
      * _userReposに対して値更新メソッド(getGitHub)を用意する
+     * MainActivityでgetGitHubメソッドを呼び出し、リポジトリのリストを取得できる
      */
     private val _userRepos : MutableLiveData<List<UserRepos>> = MutableLiveData()
     val userRepos : LiveData<List<UserRepos>> = _userRepos

@@ -17,10 +17,12 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel = ViewModelProvider(
             this,
             MainViewModelFactory(RepositoryFactory.createClientApiRepository())
-        ).get(MainActivityViewModel::class.java)
+        ).get(MainActivityViewModel::class.java) // getって何やるの？
 
+        // getGitHubを呼び出し、LiveDataであるuserReposの流し込みを始める
         mainActivityViewModel.getGitHub("google")
         val main = findViewById<TextView>(R.id.main)
+        // 流し込みが完了するたびに、画面部品に変更を反映する
         mainActivityViewModel.userRepos.observe(this, Observer {
             main.text = it.toString()
         })
