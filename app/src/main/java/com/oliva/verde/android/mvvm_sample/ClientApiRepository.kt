@@ -14,6 +14,7 @@ class ClientApiRepository(val clientApi: ClientApi) {
     fun getGithubRepos(user : String) : Single<List<UserRepos>> {
         return clientApi.getGithub(user)
             .subscribeOn(Schedulers.io())
+            // observeOn : subscribeOn以降のオペレータの実行スレッドを切り替える
             .observeOn(AndroidSchedulers.mainThread())
             // ストリームに流れてくるアイテムを変換する
             // レスポンスにbodyが入っていた場合bodyを返す

@@ -18,8 +18,11 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
     private val _userRepos : MutableLiveData<List<UserRepos>> = MutableLiveData()
     val userRepos : LiveData<List<UserRepos>> = _userRepos
 
+    // データの取得
     fun getGitHub(user : String) {
+        // userReposの流し込みを開始する
         clientApiRepository.getGithubRepos(user)
+            // 流し込まれたデータを_userReposにセットする
             .subscribe { userRepos : List<UserRepos> ->
                 _userRepos.postValue(userRepos)
             }
