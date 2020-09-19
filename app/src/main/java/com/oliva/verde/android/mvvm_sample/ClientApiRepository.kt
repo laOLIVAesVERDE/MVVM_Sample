@@ -21,7 +21,7 @@ class ClientApiRepository(val clientApi: ClientApi) {
             .map {
                 val body = it.body()
                     ?: throw IOException("failed to fetch")
-                return@map body
+                return@map body // viewModelのuserReposにセットされる
             }
     }
 }

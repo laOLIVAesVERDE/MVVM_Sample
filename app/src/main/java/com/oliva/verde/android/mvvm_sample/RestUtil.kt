@@ -8,6 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
  * APIへのアクセス方法を指定
+ * アクセス方法の指定とは、createの実行前まで
  */
 object RestUtil {
     val ENDPOINT = "https://api.github.com/"
