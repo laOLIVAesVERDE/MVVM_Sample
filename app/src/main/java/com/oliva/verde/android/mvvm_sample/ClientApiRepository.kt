@@ -24,4 +24,15 @@ class ClientApiRepository(val clientApi: ClientApi) {
                 return@map body // viewModelのuserReposにセットされる
             }
     }
+
+    fun getAllPosts() : Single<List<Posts>> {
+        return clientApi.getPosts()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map {
+                val body = it.body()
+                    ?: throw IOException("failed to fetch")
+                return@map body
+            }
+    }
 }

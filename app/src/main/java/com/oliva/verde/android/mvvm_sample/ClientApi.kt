@@ -10,5 +10,8 @@ interface ClientApi {
     fun getGithub(@Path("user") user : String) : Single<Response<List<UserRepos>>>
 
     @GET("api/v1/posts")
-    fun getAllPosts() : Single<Response<List<Posts>>>
+    fun getPosts() : Single<Response<List<Posts>>>
+
+    @GET("api/v1/posts/{id}")
+    fun getSinglePost(@Path("id") id : String) : Single<Response<Posts>>
 }
