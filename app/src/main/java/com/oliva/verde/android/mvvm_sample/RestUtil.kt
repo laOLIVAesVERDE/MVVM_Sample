@@ -11,7 +11,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * アクセス方法の指定とは、createの実行前まで
  */
 object RestUtil {
-    val ENDPOINT = "https://api.github.com/"
+    // val ENDPOINT = "https://api.github.com/"
+    val ENDPOINT = "https://infinite-river-73262.herokuapp.com/"
     val retrofit : Retrofit
 
     init {
