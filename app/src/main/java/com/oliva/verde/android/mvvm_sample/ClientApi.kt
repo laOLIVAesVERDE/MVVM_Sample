@@ -8,4 +8,10 @@ import retrofit2.http.Path
 interface ClientApi {
     @GET("users/{user}/repos")
     fun getGithub(@Path("user") user : String) : Single<Response<List<UserRepos>>>
+
+    @GET("api/v1/posts")
+    fun getPosts() : Single<Response<List<Posts>>>
+
+    @GET("api/v1/posts/{id}")
+    fun getSinglePost(@Path("id") id : String) : Single<Response<Posts>>
 }
