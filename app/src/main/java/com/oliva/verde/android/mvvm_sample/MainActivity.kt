@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.oliva.verde.android.mvvm_sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainActivityViewModel: MainActivityViewModel
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // bindingのインスタンスを取得
+        val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         // Viewの状態をViewModelが保持するためには、ViewModelProviderを使用する
         mainActivityViewModel = ViewModelProvider(
@@ -25,10 +28,10 @@ class MainActivity : AppCompatActivity() {
         // mainActivityViewModel.getGitHub("google")
         mainActivityViewModel.getAllPosts()
         Log.d("LogOfJson", mainActivityViewModel.getAllPosts().toString())
-        val main = findViewById<TextView>(R.id.main)
+        // val main = findViewById<TextView>(R.id.main)
         // 流し込みが完了するたびに、画面部品に変更を反映する
         mainActivityViewModel.allPosts.observe(this, Observer {
-            main.text = it.toString()
+            binding.response = it.toString()
         })
     }
 }
