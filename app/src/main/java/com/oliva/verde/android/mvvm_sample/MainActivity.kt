@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // val main = findViewById<TextView>(R.id.main)
         // 流し込みが完了するたびに、画面部品に変更を反映する
         mainActivityViewModel.allPosts.observe(this, Observer {
-            binding.response = it.toString()
+            binding.post = it.first()
         })
     }
 }
