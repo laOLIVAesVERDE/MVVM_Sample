@@ -55,6 +55,9 @@ dependencies {
     kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0'
     implementation 'androidx.activity:activity-ktx:1.1.0'
 
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
