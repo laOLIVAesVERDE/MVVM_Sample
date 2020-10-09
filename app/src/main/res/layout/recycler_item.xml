@@ -5,7 +5,7 @@
     <data>
         <variable
             name="post"
-            type="com.oliva.verde.android.mvvm_sample.Posts" />
+            type="com.oliva.verde.android.mvvm_sample.Post" />
     </data>
 
     <LinearLayout

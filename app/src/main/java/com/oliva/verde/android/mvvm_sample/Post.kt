@@ -1,5 +1,5 @@
 package com.oliva.verde.android.mvvm_sample
 
-data class Posts(
+data class Post(
     val title : String = ""
 )

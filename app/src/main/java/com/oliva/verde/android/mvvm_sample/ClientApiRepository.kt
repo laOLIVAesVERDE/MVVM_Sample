@@ -25,7 +25,7 @@ class ClientApiRepository(val clientApi: ClientApi) {
             }
     }
 
-    fun getAllPosts() : Single<List<Posts>> {
+    fun getAllPosts() : Single<List<Post>> {
         return clientApi.getPosts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
