@@ -3,11 +3,9 @@ package com.oliva.verde.android.mvvm_sample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.oliva.verde.android.mvvm_sample.databinding.ActivityMainBinding
 import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 class MainActivity : AppCompatActivity() {

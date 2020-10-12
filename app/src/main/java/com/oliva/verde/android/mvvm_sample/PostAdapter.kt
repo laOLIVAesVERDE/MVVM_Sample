@@ -1,13 +1,8 @@
 package com.oliva.verde.android.mvvm_sample
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.oliva.verde.android.mvvm_sample.databinding.ActivityMainBinding
 import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 
