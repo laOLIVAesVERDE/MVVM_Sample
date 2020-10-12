@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.oliva.verde.android.mvvm_sample.databinding.ActivityMainBinding
+import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainActivityViewModel: MainActivityViewModel
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // bindingのインスタンスを取得
-        val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding : RecyclerItemBinding = DataBindingUtil.setContentView(this, R.layout.recycler_item)
 
         // Viewの状態をViewModelが保持するためには、ViewModelProviderを使用する
         mainActivityViewModel = ViewModelProvider(
