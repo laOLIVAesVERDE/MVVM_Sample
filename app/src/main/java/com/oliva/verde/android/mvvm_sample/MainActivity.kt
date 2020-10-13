@@ -27,10 +27,15 @@ class MainActivity : AppCompatActivity() {
         // mainActivityViewModel.getGitHub("google")
         mainActivityViewModel.getAllPosts()
         Log.d("LogOfJson", mainActivityViewModel.getAllPosts().toString())
-        // val main = findViewById<TextView>(R.id.main)
+
         // 流し込みが完了するたびに、画面部品に変更を反映する
+        val postList : ArrayList<Post> = arrayListOf()
         mainActivityViewModel.allPosts.observe(this, Observer {
-            binding.post = it.first()
+            it.forEach { post ->
+                postList.add(post)
+            }
         })
+        val adapter = PostAdapter(postList)
+        binding
     }
 }
