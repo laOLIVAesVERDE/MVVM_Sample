@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 
-class PostAdapter(var postList : List<Post>) : RecyclerView.Adapter<PostAdapter.BindingHolder>() {
+class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostAdapter.BindingHolder>() {
 
     inner class BindingHolder(var binding: RecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 

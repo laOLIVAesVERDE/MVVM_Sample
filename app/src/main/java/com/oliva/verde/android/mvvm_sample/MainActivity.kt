@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         // getGitHubを呼び出し、LiveDataであるuserReposの流し込みを始める
         // mainActivityViewModel.getGitHub("google")
         mainActivityViewModel.getAllPosts()
-        Log.d("LogOfJson", mainActivityViewModel.getAllPosts().toString())
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
         val postList : MutableList<Post> = mutableListOf()
@@ -35,10 +34,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("ConfirmIt", it.javaClass.toString())
             it.forEach { post ->
                 Log.d("ConfirmPost", post.toString())
+                postList.add(post)
+                Log.d("ConfirmPostList", postList.toString())
             }
+            Log.d("ConfirmPostListAfter", postList.toString())
+            binding.rvPosts.adapter = PostAdapter(postList)
         })
-        Log.d("ConfirmPostList", postList.toString())
-        val postAdapter = PostAdapter(postList)
-        binding.rvPosts.adapter = postAdapter
     }
 }

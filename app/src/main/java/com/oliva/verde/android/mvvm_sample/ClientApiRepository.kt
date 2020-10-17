@@ -1,5 +1,6 @@
 package com.oliva.verde.android.mvvm_sample
 
+import android.util.Log
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -32,6 +33,7 @@ class ClientApiRepository(val clientApi: ClientApi) {
             .map {
                 val body = it.body()
                     ?: throw IOException("failed to fetch")
+                Log.d("ConfirmItOfGetAllPosts", it.toString())
                 return@map body
             }
     }

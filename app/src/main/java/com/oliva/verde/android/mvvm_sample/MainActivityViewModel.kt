@@ -1,5 +1,6 @@
 package com.oliva.verde.android.mvvm_sample
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,8 +19,8 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
     private val _userRepos : MutableLiveData<List<UserRepos>> = MutableLiveData()
     val userRepos : LiveData<List<UserRepos>> = _userRepos
 
-    private val _allPosts : MutableLiveData<List<Post>> = MutableLiveData()
-    val allPosts : LiveData<List<Post>> = _allPosts
+    private val _allPosts : MutableLiveData<MutableList<Post>> = MutableLiveData()
+    val allPosts : LiveData<MutableList<Post>> = _allPosts
 
     // データの取得
     fun getGitHub(user : String) {
@@ -34,7 +35,8 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
     fun  getAllPosts() {
         clientApiRepository.getAllPosts()
             .subscribe { allPosts : List<Post> ->
-                _allPosts.postValue(allPosts)
+                _allPosts.postValue(allPosts as MutableList<Post>?)
+                Log.d("ConfirmAllPosts", _allPosts.postValue(allPosts as MutableList<Post>?).toString())
             }
     }
 }
