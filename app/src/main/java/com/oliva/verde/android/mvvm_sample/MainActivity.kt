@@ -30,12 +30,14 @@ class MainActivity : AppCompatActivity() {
         Log.d("LogOfJson", mainActivityViewModel.getAllPosts().toString())
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
-        val postList : ArrayList<Post> = arrayListOf()
+        val postList : MutableList<Post> = mutableListOf()
         mainActivityViewModel.allPosts.observe(this, Observer {
+            Log.d("ConfirmIt", it.javaClass.toString())
             it.forEach { post ->
-                postList.add(post)
+                Log.d("ConfirmPost", post.toString())
             }
         })
+        Log.d("ConfirmPostList", postList.toString())
         val postAdapter = PostAdapter(postList)
         binding.rvPosts.adapter = postAdapter
     }
