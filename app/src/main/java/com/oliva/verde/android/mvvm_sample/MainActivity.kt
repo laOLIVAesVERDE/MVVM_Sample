@@ -11,9 +11,11 @@ import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainActivityViewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         // bindingのインスタンスを取得
         val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
@@ -31,13 +33,9 @@ class MainActivity : AppCompatActivity() {
         // 流し込みが完了するたびに、画面部品に変更を反映する
         val postList : MutableList<Post> = mutableListOf()
         mainActivityViewModel.allPosts.observe(this, Observer {
-            Log.d("ConfirmIt", it.javaClass.toString())
             it.forEach { post ->
-                Log.d("ConfirmPost", post.toString())
                 postList.add(post)
-                Log.d("ConfirmPostList", postList.toString())
             }
-            Log.d("ConfirmPostListAfter", postList.toString())
             binding.rvPosts.adapter = PostAdapter(postList)
         })
     }

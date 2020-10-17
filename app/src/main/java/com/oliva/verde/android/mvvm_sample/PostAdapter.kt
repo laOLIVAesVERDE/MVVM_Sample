@@ -1,5 +1,6 @@
 package com.oliva.verde.android.mvvm_sample
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,13 +12,14 @@ class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostA
     inner class BindingHolder(var binding: RecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
+        val layoutInflater = LayoutInflater.from(parent!!.context)
         val binding = RecyclerItemBinding.inflate(layoutInflater, parent, false)
         return BindingHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val post = postList[position]
+        Log.d("ConfirmPostOnBind", post.toString())
         holder.binding.post = post
     }
 
