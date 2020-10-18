@@ -26,8 +26,7 @@ class MainActivity : AppCompatActivity() {
             MainViewModelFactory(RepositoryFactory.createClientApiRepository())
         ).get(MainActivityViewModel::class.java) // getって何やるの？
 
-        // getGitHubを呼び出し、LiveDataであるuserReposの流し込みを始める
-        // mainActivityViewModel.getGitHub("google")
+        // getAllPostsを呼び出し、LiveDataであるallPostsへの流し込みを始める
         mainActivityViewModel.getAllPosts()
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
@@ -36,7 +35,11 @@ class MainActivity : AppCompatActivity() {
             it.forEach { post ->
                 postList.add(post)
             }
-            binding.rvPosts.adapter = PostAdapter(postList)
+            // binding.rvPosts.adapter = PostAdapter(postList)
         })
+        for (i in 0..99) {
+            postList.add(Post("title${i}", "content${i}"))
+        }
+        binding.rvPosts.adapter = PostAdapter(postList)
     }
 }
