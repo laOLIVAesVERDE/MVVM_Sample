@@ -36,19 +36,13 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.getAllPosts()
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
-        for (i in 0..10) {
-            postList.add(Post("title${i}", "content${i}"))
-        }
-        Log.d("ConfirmPostList", postList.toString())
-        binding.rvPosts.adapter = PostAdapter(postList)
-        binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
-        /**
         mainActivityViewModel.allPosts.observe(this, Observer {
             it.forEach { post ->
                 postList.add(post)
             }
-            // binding.rvPosts.adapter = PostAdapter(postList)
+            Log.d("ConfirmPostList", postList.toString())
+            binding.rvPosts.adapter = PostAdapter(postList)
+            binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
         })
-        */
     }
 }
