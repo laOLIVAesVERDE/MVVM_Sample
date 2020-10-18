@@ -1,6 +1,5 @@
 package com.oliva.verde.android.mvvm_sample
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +18,6 @@ class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostA
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val post = postList[position]
-        Log.d("ConfirmPostOnBind", post.toString())
         holder.binding.post = post
     }
 
