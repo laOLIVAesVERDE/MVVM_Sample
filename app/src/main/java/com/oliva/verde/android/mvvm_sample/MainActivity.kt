@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("ConfirmLifecycle", "onCreate")
 
         // Viewの状態をViewModelが保持するためには、ViewModelProviderを使用する
         mainActivityViewModel = ViewModelProvider(
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.getAllPosts()
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
-        mainActivityViewModel.allPosts.observe(this, Observer {
+        mainActivityViewModel.allPosts.observe(this@MainActivity, Observer {
             it.forEach { post ->
                 postList.add(post)
             }
@@ -50,5 +51,10 @@ class MainActivity : AppCompatActivity() {
             binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
             PostAdapter(postList).notifyDataSetChanged()
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("ConfirmLifecycle", "onResume")
     }
 }
