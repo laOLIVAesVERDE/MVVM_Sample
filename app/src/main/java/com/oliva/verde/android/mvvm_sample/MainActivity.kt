@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("ConfirmPostList", postList.toString())
             binding.rvPosts.adapter = PostAdapter(postList)
             binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
+            PostAdapter(postList).notifyDataSetChanged()
         })
     }
 }
