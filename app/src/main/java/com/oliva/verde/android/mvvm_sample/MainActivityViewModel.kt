@@ -13,9 +13,6 @@ import kotlinx.coroutines.launch
  */
 // ViewModelクラスを継承し、Repositoryオブジェクトを引数にとる
 class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : ViewModel() {
-    init {
-    }
-
     /**
      * LiveDataの値を変更することはできないので MutableLiveDataで_userReposを作成し、
      * _userReposに対して値更新メソッド(getGitHub)を用意する
@@ -29,23 +26,19 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
 
     // データの取得
     fun getGitHub(user : String) {
-        viewModelScope.launch {
             // userReposの流し込みを開始する
             clientApiRepository.getGithubRepos(user)
                 // 流し込まれたデータを_userReposにセットする
                 .subscribe { userRepos : List<UserRepos> ->
                     _userRepos.postValue(userRepos)
-                }
         }
     }
 
     fun  getAllPosts() {
-        viewModelScope.launch {
             clientApiRepository.getAllPosts()
                 .subscribe { allPosts : List<Post> ->
                     _allPosts.postValue(allPosts)
                     Log.d("ConfirmAllPosts", _allPosts.postValue(allPosts).toString())
-                }
         }
     }
 }
