@@ -24,6 +24,7 @@ class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostA
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val post = postList[position]
         holder.binding.post = post
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int {
