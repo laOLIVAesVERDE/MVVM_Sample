@@ -37,4 +37,15 @@ class ClientApiRepository(val clientApi: ClientApi) {
                 return@map body
             }
     }
+
+    fun getArticles(apiKey : String, searchWord : String) : Single<List<Article>> {
+        return clientApi.getNews(apiKey, searchWord)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map {
+                val body = it.body()
+                    ?: throw  IOException("failed to fetch")
+                return@map body
+            }
+    }
 }
