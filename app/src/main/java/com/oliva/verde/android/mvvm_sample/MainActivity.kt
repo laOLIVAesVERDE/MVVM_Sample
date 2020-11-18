@@ -40,17 +40,18 @@ class MainActivity : AppCompatActivity() {
         ).get(MainActivityViewModel::class.java) // getって何やるの？
 
         // getAllPostsを呼び出し、LiveDataであるallPostsへの流し込みを始める
-        mainActivityViewModel.getAllPosts()
+        val apiKey = "413005df5f58476c868396878a752fb8"
+        val searchWord = "ダイバーシティ"
+        mainActivityViewModel.getArticles(apiKey, searchWord)
 
         // 流し込みが完了するたびに、画面部品に変更を反映する
-        mainActivityViewModel.allPosts.observe(this@MainActivity, Observer {
-            it.forEach { post ->
-                postList.add(post)
+        mainActivityViewModel.allArticles.observe(this@MainActivity, Observer {
+            it.forEach { article ->
+                articleList.add(article)
             }
-            Log.d("ConfirmPostList", postList.toString())
-            binding.rvPosts.adapter = Adapter(postList)
+            binding.rvPosts.adapter = Adapter(articleList)
             binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
-            Adapter(postList).notifyDataSetChanged()
+            Adapter(articleList).notifyDataSetChanged()
         })
     }
 
