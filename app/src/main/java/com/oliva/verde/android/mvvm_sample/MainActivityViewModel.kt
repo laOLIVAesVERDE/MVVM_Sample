@@ -24,6 +24,9 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
     private val _allPosts : MutableLiveData<List<Post>> = MutableLiveData()
     val allPosts : LiveData<List<Post>> = _allPosts
 
+    private val _allArticles : MutableLiveData<List<Article>> = MutableLiveData()
+    val allArticles : LiveData<List<Article>> = _allArticles
+
     // データの取得
     fun getGitHub(user : String) {
             // userReposの流し込みを開始する
@@ -40,5 +43,12 @@ class MainActivityViewModel(val clientApiRepository : ClientApiRepository) : Vie
                     _allPosts.postValue(allPosts)
                     Log.d("ConfirmAllPosts", _allPosts.postValue(allPosts).toString())
         }
+    }
+
+    fun getArticles(apiKey : String, searchWord : String) {
+        clientApiRepository.getArticles(apiKey, searchWord)
+            .subscribe { allArticles : List<Article> ->
+                _allArticles.postValue(allArticles)
+            }
     }
 }

@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.oliva.verde.android.mvvm_sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private var postList : MutableList<Post> = mutableListOf()
+    // private var postList : MutableList<Post> = mutableListOf()
+    private var articleList : MutableList<Article> = mutableListOf()
     private lateinit var mainActivityViewModel: MainActivityViewModel
 
     // bindingのインスタンスを取得
