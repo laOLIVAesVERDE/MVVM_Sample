@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="post"
-            type="com.oliva.verde.android.mvvm_sample.Post" />
+            name="article"
+            type="com.oliva.verde.android.mvvm_sample.Article" />
     </data>
 
     <LinearLayout
@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@{post.title}"/>
+            android:text="@{article.title}"/>
 
         <TextView
             android:id="@+id/post_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@{post.content}"/>
+            android:text="@{article.publishedAt}"/>
 
     </LinearLayout>
 

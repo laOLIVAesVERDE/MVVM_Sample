@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oliva.verde.android.mvvm_sample.databinding.RecyclerItemBinding
 
 
-class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostAdapter.BindingHolder>() {
+class Adapter(var articleList : MutableList<Article>) : RecyclerView.Adapter<Adapter.BindingHolder>() {
     // ビューホルダ : DataBindingの場合は、レイアウトファイルのrootを保持する
     // root : 一番外側の要素(この場合はlayoutタグ)
     inner class BindingHolder(var binding: RecyclerItemBinding) :
@@ -22,12 +22,12 @@ class PostAdapter(var postList : MutableList<Post>) : RecyclerView.Adapter<PostA
 
     // ビューホルダ内のBinding対象データに、データを割り当てる
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
-        val post = postList[position]
-        holder.binding.post = post
+        val article = articleList[position]
+        holder.binding.article = article
         holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int {
-        return postList.size
+        return articleList.size
     }
 }

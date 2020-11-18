@@ -12,7 +12,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 object RestUtil {
     // val ENDPOINT = "https://api.github.com/"
-    val ENDPOINT = "https://infinite-river-73262.herokuapp.com/"
+    // val ENDPOINT = "https://infinite-river-73262.herokuapp.com/"
+    val ENDPOINT = "https://newsapi.org/"
     val retrofit : Retrofit
 
     init {
