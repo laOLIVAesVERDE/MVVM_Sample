@@ -16,7 +16,7 @@ interface ClientApi {
     @GET("api/v1/posts/{id}")
     fun getSinglePost(@Path("id") id : String) : Single<Response<Post>>
 
-    @GET("/v2/everything/") // アノテーション : ソースコード中に登場する要素（クラスやメソッドなど）に対して、コンパイラや実行環境に伝達したい付加的な情報（メタデータ）を注記する仕組み
+    @GET("v2/everything/") // アノテーション : ソースコード中に登場する要素（クラスやメソッドなど）に対して、コンパイラや実行環境に伝達したい付加的な情報（メタデータ）を注記する仕組み
     fun getNews(@Query("apiKey") apiKey: String,
                 @Query("q") searchWord : String) : Single<Response<List<Article>>> // 返り値をSingle型とする(参照：https://qiita.com/takahirom/items/f3e576e91b219c7239e7)
 }
