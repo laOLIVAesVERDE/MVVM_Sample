@@ -15,7 +15,6 @@ class Adapter(var articleList : MutableList<Article>) : RecyclerView.Adapter<Ada
     // 各アイテムの画面部品が記述されたレイアウトファイルを元にビューホルダオブジェクトを生成する
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
         val layoutInflater = LayoutInflater.from(parent!!.context)
-        //
         val binding = RecyclerItemBinding.inflate(layoutInflater, parent, false)
         return BindingHolder(binding)
     }

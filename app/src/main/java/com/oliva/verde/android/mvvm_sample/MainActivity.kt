@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
             it.forEach { article ->
                 articleList.add(article)
             }
-            binding.rvPosts.adapter = Adapter(articleList)
-            binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
+            binding.rvArticles.adapter = Adapter(articleList)
+            binding.rvArticles.layoutManager = LinearLayoutManager(this@MainActivity)
             Adapter(articleList).notifyDataSetChanged()
         })
     }
