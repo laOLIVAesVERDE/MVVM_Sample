@@ -10,10 +10,17 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <TextView
+            android:id="@+id/jsonToText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!--
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvArticles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+            -->
     </LinearLayout>
 
 </layout>

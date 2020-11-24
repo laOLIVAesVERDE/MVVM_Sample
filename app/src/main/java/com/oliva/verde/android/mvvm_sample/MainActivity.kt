@@ -49,9 +49,12 @@ class MainActivity : AppCompatActivity() {
             it.forEach { article ->
                 articleList.add(article)
             }
+            binding.jsonToText.text = articleList.toString()
+            /**
             binding.rvArticles.adapter = Adapter(articleList)
             binding.rvArticles.layoutManager = LinearLayoutManager(this@MainActivity)
             Adapter(articleList).notifyDataSetChanged()
+            */
         })
     }
 
