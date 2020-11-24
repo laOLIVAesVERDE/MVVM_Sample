@@ -2,6 +2,7 @@ package com.oliva.verde.android.mvvm_sample
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     // bindingのインスタンスを取得
     // by lazy :    一度だけ値の初期化を行う
     //              値はキャッシュされ、二回目以降は最初の値を常に返す
+    /*
     private val binding : ActivityMainBinding by lazy {
         // DataBindingUtil : Utility class to create ViewDataBinding from layouts.
         // ViewDataBinding : Base class for generated data binding classes.
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                 lifecycleOwner = this@MainActivity
             }
     }
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +47,12 @@ class MainActivity : AppCompatActivity() {
         val searchWord = "ダイバーシティ"
         mainActivityViewModel.getArticles(apiKey, searchWord)
 
+        val jsonToText = findViewById<TextView>(R.id.jsonToText)
         // 流し込みが完了するたびに、画面部品に変更を反映する
         mainActivityViewModel.allArticles.observe(this@MainActivity, Observer {
-            it.forEach { article ->
-                articleList.add(article)
-            }
-            binding.jsonToText.text = articleList.toString()
+                jsonToText.text = it.toString()
+
+            // binding.jsonToText.text = articleList.toString()
             /**
             binding.rvArticles.adapter = Adapter(articleList)
             binding.rvArticles.layoutManager = LinearLayoutManager(this@MainActivity)
